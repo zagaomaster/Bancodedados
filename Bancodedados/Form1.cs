@@ -15,12 +15,7 @@ namespace Bancodedados
 {
     public partial class Form1 : Form
     {
-     
-
-
-        // versao 1.0.2
-
-        
+        // versao 1.0.3
 
         Form2 fm2;
         public int idxGride { get; set; }
