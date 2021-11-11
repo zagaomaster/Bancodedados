@@ -15,7 +15,7 @@ namespace Bancodedados
 {
     public partial class Form1 : Form
     {
-        // versao 1.0.3
+        // versao 1.0.4
 
         Form2 fm2;
         public int idxGride { get; set; }
@@ -95,7 +95,8 @@ namespace Bancodedados
                 "nome varchar(30) not null," +
                 "fone varchar(13)," +
                 "datacadastro timestamp without time zone," +
-                "primary key (id))";
+                "primary key (id));" +
+                "create index idx_nome on cadastro (nome)";
             try
             {
                 cnn = new NpgsqlConnection(connectString);
