@@ -80,9 +80,9 @@ namespace Bancodedados
                 cnn.Close();
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados");
+                MessageBox.Show("Erro ao tentar conectar com banco de dados,"+ ex.Message);
 
             }
             return statos;
@@ -108,9 +108,9 @@ namespace Bancodedados
                 MessageBox.Show("Tabela Cadastro Criado com Sucesso");
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar Criar Tabela Cadastro.");
+                MessageBox.Show("Erro ao tentar Criar Tabela Cadastro, " + ex.Message);
 
             }
 
@@ -138,9 +138,9 @@ namespace Bancodedados
                 cnn.Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados");
+                MessageBox.Show("Erro ao tentar conectar com banco de dados, "+ ex.Message);
 
             }
         }
@@ -168,9 +168,9 @@ namespace Bancodedados
                 cnn.Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados");
+                MessageBox.Show("Erro ao tentar conectar com banco de dados, "+ex.Message);
             
             }
         }
@@ -268,9 +268,9 @@ namespace Bancodedados
                 mensagem = "Cadastrado com Sucesso.";
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados");
+                MessageBox.Show("Erro ao tentar conectar com banco de dados, "+ ex.Message);
 
             }
         }
