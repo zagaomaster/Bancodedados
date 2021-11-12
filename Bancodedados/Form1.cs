@@ -300,7 +300,8 @@ namespace Bancodedados
         {
             if (txtbusca.Text.Length == 0)
             {
-                MessageBox.Show("Nome Não pode estar Vazio");
+                //MessageBox.Show("Nome Não pode estar Vazio");
+                ListarTudo();
                 txtbusca.Select();
                 return;
             }
