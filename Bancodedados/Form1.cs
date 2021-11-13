@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Npgsql;
 
 namespace Bancodedados
@@ -51,8 +52,30 @@ namespace Bancodedados
                
             // lista todo conteudo da tabela na grid
             ListarTudo();
-           
+            String texto;
+
+            if (!File.Exists("configuracao.txt"))
+            {
+                StreamWriter sw = new StreamWriter("configuracao.txt");
+                sw.WriteLine("Sistema De Banco de Dados");
+                sw.WriteLine("Versao 1.0.5");
+                sw.Close();
+            } else
+            {
+                StreamReader sr = new StreamReader("configuracao.txt");
+                String linha = sr.ReadLine();
+                texto = linha;
+                linha = sr.ReadLine();
+                texto += " "+linha;
+                sr.Close();
+                this.Text = texto;
+            }
+
             
+
+
+
+
         }
 
 
