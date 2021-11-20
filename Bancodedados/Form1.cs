@@ -53,16 +53,22 @@ namespace Bancodedados
             // lista todo conteudo da tabela na grid
             ListarTudo();
             String texto;
+            String pathfile = @"c:\teste\configuracao.txt";
+            //string diretorio = Directory.GetCurrentDirectory();
+            //string dire = diretorio.getpa
+            //txtbusca.Text = diretorio;
 
-            if (!File.Exists("configuracao.txt"))
+            if (!File.Exists(pathfile))
             {
-                StreamWriter sw = new StreamWriter("configuracao.txt");
+                
+                StreamWriter sw = new StreamWriter(pathfile);
                 sw.WriteLine("Sistema De Banco de Dados");
                 sw.WriteLine("Versao 1.0.5");
                 sw.Close();
+
             } else
             {
-                StreamReader sr = new StreamReader("configuracao.txt");
+                StreamReader sr = new StreamReader(pathfile);
                 String linha = sr.ReadLine();
                 texto = linha;
                 linha = sr.ReadLine();
