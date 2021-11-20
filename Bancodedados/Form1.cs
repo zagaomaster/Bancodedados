@@ -53,13 +53,19 @@ namespace Bancodedados
             // lista todo conteudo da tabela na grid
             ListarTudo();
             String texto;
-            String pathfile = @"c:\teste\configuracao.txt";
+            String pathfile = @"c:\zagaomaster\configuracao.txt";
             //string diretorio = Directory.GetCurrentDirectory();
             //string dire = diretorio.getpa
             //txtbusca.Text = diretorio;
 
             if (!File.Exists(pathfile))
             {
+                if (!Directory.Exists(pathfile))
+                {
+                    MessageBox.Show("Diretorio não existe, Foi criado 'zagaomaster'. Aplicativo será fechado, abra o novamente.");
+                    Directory.CreateDirectory(@"c:\zagaomaster");
+                    Application.Exit();
+                }
                 
                 StreamWriter sw = new StreamWriter(pathfile);
                 sw.WriteLine("Sistema De Banco de Dados");
