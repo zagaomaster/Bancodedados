@@ -31,17 +31,17 @@ namespace Bancodedados
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.btnBusca = new System.Windows.Forms.Button();
-            this.txtbusca = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Colupdate = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnBusca = new System.Windows.Forms.Button();
+            this.txtbusca = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,54 +69,8 @@ namespace Bancodedados
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(672, 216);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(18, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 37);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Novo Cadastro";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(587, 12);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(103, 37);
-            this.btnSair.TabIndex = 8;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // btnBusca
-            // 
-            this.btnBusca.Location = new System.Drawing.Point(448, 12);
-            this.btnBusca.Name = "btnBusca";
-            this.btnBusca.Size = new System.Drawing.Size(103, 37);
-            this.btnBusca.TabIndex = 9;
-            this.btnBusca.Text = "Buscar Nome";
-            this.btnBusca.UseVisualStyleBackColor = true;
-            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
-            // 
-            // txtbusca
-            // 
-            this.txtbusca.Location = new System.Drawing.Point(182, 25);
-            this.txtbusca.Name = "txtbusca";
-            this.txtbusca.Size = new System.Drawing.Size(260, 20);
-            this.txtbusca.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(138, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Nome:";
             // 
             // Column4
             // 
@@ -166,6 +120,53 @@ namespace Bancodedados
             this.ColDelete.Name = "ColDelete";
             this.ColDelete.ReadOnly = true;
             this.ColDelete.Width = 44;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 37);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Novo Cadastro";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(587, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(103, 37);
+            this.btnSair.TabIndex = 4;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnBusca
+            // 
+            this.btnBusca.Location = new System.Drawing.Point(448, 12);
+            this.btnBusca.Name = "btnBusca";
+            this.btnBusca.Size = new System.Drawing.Size(103, 37);
+            this.btnBusca.TabIndex = 3;
+            this.btnBusca.Text = "Buscar Nome";
+            this.btnBusca.UseVisualStyleBackColor = true;
+            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
+            // 
+            // txtbusca
+            // 
+            this.txtbusca.Location = new System.Drawing.Point(182, 25);
+            this.txtbusca.Name = "txtbusca";
+            this.txtbusca.Size = new System.Drawing.Size(260, 20);
+            this.txtbusca.TabIndex = 2;
+            this.txtbusca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbusca_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Nome:";
             // 
             // Form1
             // 

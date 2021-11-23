@@ -343,5 +343,16 @@ namespace Bancodedados
 
             busca(txtbusca.Text);
         }
+
+        private void txtbusca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+                SelectNextControl(ActiveControl, true, true, true, true);
+            }
+
+            busca(txtbusca.Text);
+        }
     }
 }

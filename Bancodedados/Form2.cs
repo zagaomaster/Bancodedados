@@ -24,6 +24,7 @@ namespace Bancodedados
         private void Form2_Load(object sender, EventArgs e)
         {
             txtNome.Select();
+            txtNome.SelectAll();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

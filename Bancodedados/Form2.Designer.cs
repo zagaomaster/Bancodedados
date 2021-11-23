@@ -47,7 +47,7 @@ namespace Bancodedados
             this.btnSalva.Location = new System.Drawing.Point(24, 144);
             this.btnSalva.Name = "btnSalva";
             this.btnSalva.Size = new System.Drawing.Size(87, 33);
-            this.btnSalva.TabIndex = 0;
+            this.btnSalva.TabIndex = 3;
             this.btnSalva.Text = "Salvar";
             this.btnSalva.UseVisualStyleBackColor = true;
             this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
@@ -75,7 +75,7 @@ namespace Bancodedados
             this.btnAtualiza.Location = new System.Drawing.Point(140, 144);
             this.btnAtualiza.Name = "btnAtualiza";
             this.btnAtualiza.Size = new System.Drawing.Size(87, 33);
-            this.btnAtualiza.TabIndex = 3;
+            this.btnAtualiza.TabIndex = 4;
             this.btnAtualiza.Text = "Atualizar";
             this.btnAtualiza.UseVisualStyleBackColor = true;
             this.btnAtualiza.Click += new System.EventHandler(this.btnAtualiza_Click);
@@ -85,17 +85,17 @@ namespace Bancodedados
             this.btnCancel.Location = new System.Drawing.Point(263, 144);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 33);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(62, 49);
+            this.txtNome.Location = new System.Drawing.Point(65, 46);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(288, 20);
-            this.txtNome.TabIndex = 6;
+            this.txtNome.TabIndex = 0;
             // 
             // label2
             // 
@@ -111,7 +111,7 @@ namespace Bancodedados
             this.txtFone.Location = new System.Drawing.Point(62, 75);
             this.txtFone.Name = "txtFone";
             this.txtFone.Size = new System.Drawing.Size(288, 20);
-            this.txtFone.TabIndex = 8;
+            this.txtFone.TabIndex = 1;
             // 
             // label3
             // 
@@ -127,7 +127,7 @@ namespace Bancodedados
             this.txtdata.Location = new System.Drawing.Point(105, 101);
             this.txtdata.Name = "txtdata";
             this.txtdata.Size = new System.Drawing.Size(245, 20);
-            this.txtdata.TabIndex = 10;
+            this.txtdata.TabIndex = 2;
             // 
             // label4
             // 
