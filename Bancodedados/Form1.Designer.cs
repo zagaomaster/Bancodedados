@@ -157,6 +157,7 @@ namespace Bancodedados
             this.txtbusca.Name = "txtbusca";
             this.txtbusca.Size = new System.Drawing.Size(260, 20);
             this.txtbusca.TabIndex = 2;
+            this.txtbusca.TextChanged += new System.EventHandler(this.txtbusca_TextChanged);
             this.txtbusca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbusca_KeyPress);
             // 
             // label1

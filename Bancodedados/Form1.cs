@@ -186,13 +186,21 @@ namespace Bancodedados
         {
 
 
-            string sql = "select * from cadastro";
+            string sql = "select count (*) from cadastro";
             try
             {
                 cnn = new NpgsqlConnection(connectString);
                 cmd = new NpgsqlCommand(sql, cnn);
                 cnn.Open();
                 NpgsqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                long linhas = long.Parse(dr[0].ToString());
+                
+                dr.Close();
+                cmd.CommandText = "select * from cadastro offset @num - 8";
+                cmd.Parameters.AddWithValue("@num", linhas);
+                dr = cmd.ExecuteReader();
+                
                 dataGridView1.Rows.Clear();
                 while (dr.Read())
                 {
@@ -352,7 +360,15 @@ namespace Bancodedados
                 SelectNextControl(ActiveControl, true, true, true, true);
             }
 
-            busca(txtbusca.Text);
+            //busca(txtbusca.Text);
+        }
+
+        private void txtbusca_TextChanged(object sender, EventArgs e)
+        {
+            if (txtbusca.TextLength == 0)
+                ListarTudo();
+            else
+                busca(txtbusca.Text);
         }
     }
 }
