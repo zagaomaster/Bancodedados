@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
+﻿using Npgsql;
+using System;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using Npgsql;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Bancodedados
 {
@@ -35,13 +28,13 @@ namespace Bancodedados
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             if (IsAppAlreadyRunning())
             {
                 MessageBox.Show("O aplicativo já está em execução!");
                 Process.GetCurrentProcess().Kill();
             }
-            
+
             if (!CheckTabela())
             {
                 DialogResult resp = MessageBox.Show("Tabela Cadastro Não Existe, Deseja Criar uma?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -49,7 +42,7 @@ namespace Bancodedados
                     CriaTabela();
 
             }
-               
+
             // lista todo conteudo da tabela na grid
             ListarTudo();
             String texto;
@@ -66,26 +59,23 @@ namespace Bancodedados
                     Directory.CreateDirectory(@"c:\zagaomaster");
                     Application.Restart();
                 }
-                
+
                 StreamWriter sw = new StreamWriter(pathfile);
                 sw.WriteLine("Sistema De Banco de Dados");
                 sw.WriteLine("Versao 1.0.5");
                 sw.Close();
 
-            } else
+            }
+            else
             {
                 StreamReader sr = new StreamReader(pathfile);
                 String linha = sr.ReadLine();
                 texto = linha;
                 linha = sr.ReadLine();
-                texto += " "+linha;
+                texto += " " + linha;
                 sr.Close();
                 this.Text = texto;
             }
-
-            
-
-
 
 
         }
@@ -101,7 +91,7 @@ namespace Bancodedados
                 cmd = new NpgsqlCommand(sql, cnn);
                 cnn.Open();
                 NpgsqlDataReader dr = cmd.ExecuteReader();
-                
+
                 while (dr.Read())
                 {
                     //MessageBox.Show(dr[0].ToString());
@@ -113,11 +103,11 @@ namespace Bancodedados
                 }
                 dr.Close();
                 cnn.Close();
-                
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados,"+ ex.Message);
+                MessageBox.Show("Erro ao tentar conectar com banco de dados," + ex.Message);
 
             }
             return statos;
@@ -137,7 +127,7 @@ namespace Bancodedados
                 cnn = new NpgsqlConnection(connectString);
                 cmd = new NpgsqlCommand(sql, cnn);
                 cnn.Open();
-                
+
                 cmd.ExecuteNonQuery();
                 cnn.Close();
                 MessageBox.Show("Tabela Cadastro Criado com Sucesso");
@@ -159,9 +149,9 @@ namespace Bancodedados
             {
                 cnn = new NpgsqlConnection(connectString);
                 cmd = new NpgsqlCommand(sql, cnn);
-                cmd.Parameters.AddWithValue("@busca", dado+"%");
+                cmd.Parameters.AddWithValue("@busca", dado + "%");
                 cnn.Open();
-                
+
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 dataGridView1.Rows.Clear();
                 while (dr.Read())
@@ -175,7 +165,7 @@ namespace Bancodedados
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados, "+ ex.Message);
+                MessageBox.Show("Erro ao tentar conectar com banco de dados, " + ex.Message);
 
             }
         }
@@ -195,12 +185,12 @@ namespace Bancodedados
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
                 long linhas = long.Parse(dr[0].ToString());
-                
+
                 dr.Close();
                 cmd.CommandText = "select * from cadastro offset @num - 8";
                 cmd.Parameters.AddWithValue("@num", linhas);
                 dr = cmd.ExecuteReader();
-                
+
                 dataGridView1.Rows.Clear();
                 while (dr.Read())
                 {
@@ -213,8 +203,8 @@ namespace Bancodedados
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados, "+ex.Message);
-            
+                MessageBox.Show("Erro ao tentar conectar com banco de dados, " + ex.Message);
+
             }
         }
 
@@ -239,7 +229,7 @@ namespace Bancodedados
             fm2.txtFone.Clear();
             fm2.txtdata.Text = DateTime.Now.ToString();
             fm2.ShowDialog();
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -260,9 +250,10 @@ namespace Bancodedados
                 idxGride = e.RowIndex;
                 fm2.ShowDialog(this);
 
-            } else if (conNome == "ColDelete")
+            }
+            else if (conNome == "ColDelete")
             {
-                DialogResult resp = MessageBox.Show("Tem Certeza que quer Excluir este Registro?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
+                DialogResult resp = MessageBox.Show("Tem Certeza que quer Excluir este Registro?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (resp == DialogResult.Yes)
                 {
                     string indice = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -313,7 +304,7 @@ namespace Bancodedados
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao tentar conectar com banco de dados, "+ ex.Message);
+                MessageBox.Show("Erro ao tentar conectar com banco de dados, " + ex.Message);
 
             }
         }
