@@ -271,14 +271,23 @@ namespace Bancodedados
             DateTime dt = DateTime.Parse(datacad);
             string sql = "update cadastro set nome=@nome,fone=@fone, datacadastro=@datac where id=@codigo";
             cmd = new NpgsqlCommand(sql, cnn);
-            cnn.Open();
-            cmd.Parameters.AddWithValue("@codigo", idx1);
-            cmd.Parameters.AddWithValue("@nome", nome);
-            cmd.Parameters.AddWithValue("@fone", fone);
-            cmd.Parameters.AddWithValue("@datac", dt);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
-            mensagem = "Atualizado com Sucesso.";
+            try
+            {
+                cnn.Open();
+                cmd.Parameters.AddWithValue("@codigo", idx1);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@fone", fone);
+                cmd.Parameters.AddWithValue("@datac", dt);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                mensagem = "Atualizado com Sucesso.";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro> " + ex.Message);
+            }
+            
+            
 
         }
 
@@ -314,11 +323,19 @@ namespace Bancodedados
             int idx1 = Int32.Parse(idx);
             string sql = "DELETE FROM cadastro WHERE id=@codigo";
             cmd = new NpgsqlCommand(sql, cnn);
-            cnn.Open();
-            cmd.Parameters.AddWithValue("@codigo", idx1);
-            cmd.ExecuteNonQuery();
-            cnn.Close();
-            mensagem = "Registro Excluido com Sucesso.";
+            try
+            {
+                cnn.Open();
+                cmd.Parameters.AddWithValue("@codigo", idx1);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                mensagem = "Registro Excluido com Sucesso.";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro> " + ex.Message);
+            }
+            
 
         }
 
