@@ -187,7 +187,7 @@ namespace Bancodedados
                 long linhas = long.Parse(dr[0].ToString());
                 dr.Close();
 
-                if (linhas < 12)
+                if (linhas < 8)
                 {
                     cmd.CommandText = "select * from cadastro";
                 }else
