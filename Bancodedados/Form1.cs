@@ -185,10 +185,19 @@ namespace Bancodedados
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 dr.Read();
                 long linhas = long.Parse(dr[0].ToString());
-
                 dr.Close();
-                cmd.CommandText = "select * from cadastro offset @num - 8";
-                cmd.Parameters.AddWithValue("@num", linhas);
+
+                if (linhas < 12)
+                {
+                    cmd.CommandText = "select * from cadastro";
+                }else
+                {
+                    cmd.CommandText = "select * from cadastro offset @num - 8";
+                    cmd.Parameters.AddWithValue("@num", linhas);
+                }
+                
+                
+                
                 dr = cmd.ExecuteReader();
 
                 dataGridView1.Rows.Clear();
