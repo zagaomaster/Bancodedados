@@ -13,6 +13,7 @@ namespace Bancodedados
 
         Form2 fm2;
         public int idxGride { get; set; }
+        public bool isInstall = false;
 
         string connectString = "Server=localhost;Port=5432;User Id=postgres;Password=testeteste;Database=postgres";
         public string mensagem = "";
@@ -39,7 +40,18 @@ namespace Bancodedados
             {
                 DialogResult resp = MessageBox.Show("Tabela Cadastro Não Existe, Deseja Criar uma?", "Mensagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resp == DialogResult.Yes)
+                {
                     CriaTabela();
+                    this.Text = "Sistema de Dados Versão 1.0.4";
+                }
+                    
+                else
+                {
+                    isInstall = false;
+                    this.Text = "Sistema de Dados Versão (Sem Banco de dados)";
+                }
+                    
+                
 
             }
 
@@ -98,6 +110,7 @@ namespace Bancodedados
                     if (dr[0].ToString() == "True")
                     {
                         statos = true;
+                        isInstall = true;
                     }
 
                 }
@@ -136,6 +149,7 @@ namespace Bancodedados
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao tentar Criar Tabela Cadastro, " + ex.Message);
+                this.Text = "Sistema de Dados Versão (Sem banco de dados)";
 
             }
 
