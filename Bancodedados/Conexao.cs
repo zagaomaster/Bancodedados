@@ -13,11 +13,11 @@ namespace Bancodedados
 {
     class Conexao
     {
-        string connectString = "Server=localhost;Port=5432;User Id=postgres;Password=testeteste;Database=postgres";
+        readonly string connectString = "Server=localhost;Port=5432;User Id=postgres;Password=testeteste;Database=postgres";
         public string mensagem = "";
         NpgsqlConnection cnn;
         NpgsqlCommand cmd;
-        Form1 fm1;
+        readonly Form1 fm1;
 
         //SqlConnection cnn;
         //SqlCommand cmd;
