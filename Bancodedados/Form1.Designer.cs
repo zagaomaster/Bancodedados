@@ -193,7 +193,7 @@ namespace Bancodedados
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+       // private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnBusca;

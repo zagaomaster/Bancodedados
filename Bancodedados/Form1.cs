@@ -11,11 +11,11 @@ namespace Bancodedados
     {
         // versao 1.0.4
 
-        Form2 fm2;
+        readonly Form2 fm2;
         public int idxGride { get; set; }
         public bool isInstall = false;
 
-        string connectString = "Server=localhost;Port=5432;User Id=postgres;Password=testeteste;Database=postgres";
+        readonly string connectString = "Server=localhost;Port=5432;User Id=postgres;Password=testeteste;Database=postgres";
         public string mensagem = "";
         NpgsqlConnection cnn;
         NpgsqlCommand cmd;
@@ -44,14 +44,14 @@ namespace Bancodedados
                     CriaTabela();
                     this.Text = "Sistema de Dados Versão 1.0.4";
                 }
-                    
+
                 else
                 {
                     isInstall = false;
                     this.Text = "Sistema de Dados Versão (Sem Banco de dados)";
                 }
-                    
-                
+
+
 
             }
 
@@ -204,14 +204,15 @@ namespace Bancodedados
                 if (linhas < 8)
                 {
                     cmd.CommandText = "select * from cadastro";
-                }else
+                }
+                else
                 {
                     cmd.CommandText = "select * from cadastro offset @num - 8";
                     cmd.Parameters.AddWithValue("@num", linhas);
                 }
-                
-                
-                
+
+
+
                 dr = cmd.ExecuteReader();
 
                 dataGridView1.Rows.Clear();
@@ -309,8 +310,8 @@ namespace Bancodedados
             {
                 MessageBox.Show("Erro> " + ex.Message);
             }
-            
-            
+
+
 
         }
 
@@ -358,7 +359,7 @@ namespace Bancodedados
             {
                 MessageBox.Show("Erro> " + ex.Message);
             }
-            
+
 
         }
 
